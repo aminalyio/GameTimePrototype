@@ -1,0 +1,53 @@
+import { Meta } from '@storybook/addon-docs';
+import Code from './assets/code-brackets.svg';
+import Colors from './assets/colors.svg';
+import Comments from './assets/comments.svg';
+import Direction from './assets/direction.svg';
+import Flow from './assets/flow.svg';
+import Plugin from './assets/plugin.svg';
+import Repo from './assets/repo.svg';
+import StackAlt from './assets/stackalt.svg';
+
+<Meta title="Tutorials/API/MediaDevices" />
+
+<style>
+  {`
+    .note {
+        border-left: 4px solid rgb(211, 61, 61);
+        background-color: rgb(245, 247, 249);
+        border-radius: 4px;
+        padding: 4px 16px;
+    }
+
+    .info {
+        border-left: 4px solid rgb(52, 109, 219);
+        background-color: rgb(245, 247, 249);
+        border-radius: 4px;
+        padding: 4px 16px;
+    }
+  `}
+</style>
+
+
+# MediaDevices. Public method summary
+
+The MediaDevices interface provides access to connected media input devices like cameras and microphones.
+
+## getMediaDevices()
+`getMediaDevices()` - Returns the list of available for using media devices
+
+## setAudioConstraints(deviceId)
+`setAudioConstraints(deviceId)` - Selects the audio device for the session
+
+## setVideoConstraints(deviceId)
+`setVideoConstraints(deviceId)` - Selects the video device for the session
+
+## doPreview(constraints)
+`doPreview(constraints)` - Returns a preview stream for session
+
+## changeMediaDevice(deviceId, type, selector)
+`changeMediaDevice(deviceId, type, selector)` - Allows the user to change media device
+
+* deviceId - id of selected device provided by getMediaDevices() method
+* type - type of device to change. Possible values are: ['camera', 'microphone', 'speaker']
+* querySelector for video element to replace a stream object

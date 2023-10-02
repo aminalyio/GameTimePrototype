@@ -1,0 +1,103 @@
+.is-celebrity-page .room {
+    background: #004ecc;
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #fff;
+}
+
+.room.visited {
+    opacity: 0.5;
+}
+
+.room.visited .name {
+    font-size: 21px;
+}
+
+.room.visited .checkbox {
+    display: flex;
+}
+
+.room.active {
+    background: rgba(181, 201, 255, .6);
+}
+
+.room {
+    margin-top: 16px;
+}
+
+.room-button {
+    background: #cbcbcb !important;
+    color: #004ecc !important;
+    width: auto !important;
+    padding: 4px 16px !important;
+    min-height: 38px;
+}
+
+.line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.line:not(:first-child) {
+    margin-top: 8px;
+}
+
+.name {
+    font-family: 'Righteous', cursive;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+.checkbox {
+    display: none;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    min-width: 24px;
+    max-width: 24px;
+    min-height: 24px;
+    max-height: 24px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4px;
+}
+
+.time {
+    font-family: 'Arial', serif;
+    font-size: 21px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.time .icon {
+    margin-right: 4px;
+    width: 32px;
+    height: 32px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../../../../../assets/clock.svg');
+}
+
+.participants-count {
+    font-family: 'Rosario', sans-serif;
+    font-size: 21px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.participants-count .count {
+    font-family: 'Righteous', cursive;
+    font-size: 18px;
+    margin-right: 4px;
+}
+
+.participants-count .icon {
+    margin-right: 4px;
+    width: 32px;
+    height: 32px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../../../../../assets/participants.svg');
+}

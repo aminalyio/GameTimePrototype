@@ -1,0 +1,79 @@
+import { Meta } from '@storybook/addon-docs';
+import Code from './assets/code-brackets.svg';
+import Colors from './assets/colors.svg';
+import Comments from './assets/comments.svg';
+import Direction from './assets/direction.svg';
+import Flow from './assets/flow.svg';
+import Plugin from './assets/plugin.svg';
+import Repo from './assets/repo.svg';
+import StackAlt from './assets/stackalt.svg';
+
+<Meta title="Tutorials/Authentication" />
+
+<style>
+  {`
+    .note {
+        border-left: 4px solid rgb(211, 61, 61);
+        background-color: rgb(245, 247, 249);
+        border-radius: 4px;
+        padding: 4px 16px;
+    }
+
+    .info {
+        border-left: 4px solid rgb(52, 109, 219);
+        background-color: rgb(245, 247, 249);
+        border-radius: 4px;
+        padding: 4px 16px;
+    }
+  `}
+</style>
+
+
+## Authentication
+An Access Token is needed in order to allow a client to connect to a Session.
+
+<div className="note">
+    <p>Note: It is important that the client application does not request an Access Token directly from the frontend. By doing that you risk exposing the API_TOKEN and API_SECRET.</p>
+</div>
+
+* To learn how to acquire an Access Token please look at the Cluster Authentication Server (CAS) reference
+* To simplify the tutorial, in the section below you can see an example of getting an Access Token.
+
+## Acquiring an Access Token
+
+```bash
+curl -iL --request GET --url https://YOUR_CAS_URL/stream/token/v2/ --header 'auth-api-key: API_KEY'   --header 'auth-api-secret: API_SECRET'
+```
+
+The 'Access Token' is a JWT token - more about jwt you can read - here.
+A successful response will look like that:
+
+```json
+{
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...."
+}
+```
+
+
+<div className="info">
+    <p>
+        You can get your API_KEY and API_SECRET in your private area, here.
+    </p>
+</div>
+<br />
+<div className="note">
+    <p>
+        Note: Every Streaming Token corresponds to one specific Session only. To allow two different clients to connect to the same Session, the clients need to use the same Access Token.
+    </p>
+</div>
+
+
+## Going to production
+When moving from the Sandbox environment to production you will need to implement your own authentication server. 
+
+This server will supply the various clients (Web, Android, and iOS) with a valid Access Token so that they can use the service.
+
+
+For that you will need:
+* API_KEY, and API_SECRET - can be retrieved in your private area once you login 
+* Your own working authentication server - Authentication overview

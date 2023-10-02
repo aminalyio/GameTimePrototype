@@ -1,0 +1,18 @@
+.copy-link {
+    position: absolute;
+    left: -52px;
+    bottom: 48px;
+    width: 32px;
+    height: 32px;
+    background-image: url('../../assets/copy.svg');
+    background-color: transparent;
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    outline: none;
+    border: none;
+}
+
+.copy-link__done {
+    background-image: url('../../assets/copy-done.svg');
+}

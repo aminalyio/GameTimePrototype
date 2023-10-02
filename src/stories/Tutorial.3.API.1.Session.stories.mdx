@@ -1,0 +1,68 @@
+import { Meta } from '@storybook/addon-docs';
+import Code from './assets/code-brackets.svg';
+import Colors from './assets/colors.svg';
+import Comments from './assets/comments.svg';
+import Direction from './assets/direction.svg';
+import Flow from './assets/flow.svg';
+import Plugin from './assets/plugin.svg';
+import Repo from './assets/repo.svg';
+import StackAlt from './assets/stackalt.svg';
+
+<Meta title="Tutorials/API/Session" />
+
+<style>
+  {`
+    .note {
+        border-left: 4px solid rgb(211, 61, 61);
+        background-color: rgb(245, 247, 249);
+        border-radius: 4px;
+        padding: 4px 16px;
+    }
+
+    .info {
+        border-left: 4px solid rgb(52, 109, 219);
+        background-color: rgb(245, 247, 249);
+        border-radius: 4px;
+        padding: 4px 16px;
+    }
+  `}
+</style>
+
+
+# Methods
+
+## connect(streamingToken, participantName, userConstraints, metadata)
+
+`connect(streamingToken, 
+participantName, userConstraints, 
+metadata)` - This method will allow you to connect to the session
+
+
+* streamingToken (required) - JWT token which you can get from CAS. Note: For connecting two or users in the same session you need to share tokens between participants.
+* participantName (required) - participant name in the session
+* userConstraints (optional) - object with two fields `{audio: boolean, video: boolean, videoCodecs*: Object }`
+* Defaults for videoCodecs constraints:
+  ```js
+  videoCodecs: {
+     priorityList: ['H264', 'VP8'],
+     forcingCodec: false,
+     applyToAnswer: false,
+     skipPrioritization: false,
+  }
+  ```
+
+  * priorityList (Array) - ordered video codecs list by priority (keep in mind that browsers are still select the best approach based on internal algorithms)
+  * forcingCodec (String || boolean) - a specific codec which will be used to prepare  a SDP offer (marks that device able use for output streaming video the only selected codec)
+  * applyToAnswer (boolean) - If true codec from forcingCodec property will be applied not only to outgoing video, but onto incoming as well. Keep in mind if some of device doesn’t support selected codec it would not be able to connect
+  * skipPrioritization (boolean) - if true then browser sort and apply codecs according to internal SDP specification
+* metadata (optional) - object allow to share some info between participants
+
+
+## connectAsAViewer(streamingToken, participantName)
+
+`connectAsAViewer(
+streamingToken, participantName)` - This method will allow you to connect to the session as a viewer meaning, without Audio or Video
+
+
+* streamingToken (required) - JWT token which you can get from CAS. Note: For connecting two or users in the same session you need to share tokens between participants.
+* participantName (required) - participant name in the session

@@ -1,0 +1,24 @@
+.visited-chips-root {
+    display: flex;
+    flex-direction: row;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.visited-chips {
+    display: flex;
+    padding: 4px 12px;
+    padding-left: 36px;
+    margin-top: 8px;
+    margin-right: 8px;
+    background-image: url('../../../../../../assets/ok-man.svg');
+    background-repeat: no-repeat;
+    background-position: 8px center;
+    background-size: 24px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 32px;
+    border: 1px solid rgb(76, 175, 80);
+    color: rgb(76, 175, 80);
+}

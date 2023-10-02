@@ -1,0 +1,54 @@
+.rooms {
+    width: 380px;
+    min-width: 370px;
+    margin-right: -16px;
+    background: #002055;
+    border-radius: 8px;
+    position: relative;
+}
+
+.rooms-content {
+    position: absolute;
+    top: 218px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0px 16px 16px;
+    overflow-y: scroll;
+    border-top: 1px solid #cbcbcb;
+}
+
+.rooms-connected {
+    padding: 0px 16px;
+}
+
+.rooms-content::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.rooms-content::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.room-status-block {
+    text-align: center;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.room-status-block:not(:first-child) {
+    margin-top: 30px;
+}
+
+.room-next-button {
+    background: #cbcbcb !important;
+    color: #004ecc !important;
+    padding: 4px 16px !important;
+    min-height: 38px;
+}
+
+.rooms-next {
+    text-align: center;
+    padding: 16px;
+}

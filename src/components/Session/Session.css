@@ -1,0 +1,183 @@
+.session-container {
+    width: 100%;
+    height: 100vh;
+    padding: 16px 16px 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.session-container::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.session-container::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.s-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.s-logo {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: #fff;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.s-logo__sceenic {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.s-logo__sceenic-logo {
+    width: 150px;
+    height: 32px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-image: url(./components/img/sceenic-white.svg);
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+    width: 100%;
+    padding: 4px 8px;
+    background: linear-gradient(135deg,#002055,#004ecc);
+    border-radius: 32px;
+    color: #FFFFFF;
+    transform: scale(1);
+    transition: 0.2s ease;
+    outline: none !important;
+    font-family: 'Rosario', sans-serif;
+    border: none;
+}
+.button:hover:enabled {
+    transform: scale(1.02);
+}
+.button.outline {
+    border: 1px solid #B5C9FF;
+    background: none;
+}
+
+.s-body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    gap: 16px;
+    flex-grow: 1;
+    /* max-width: 1680px; */
+    align-self: center;
+}
+
+.s-celebrity-container {
+    position: relative;
+}
+
+.s-celebrity-video {
+    width: 100%;
+}
+
+.s-snapshot {
+    position: absolute;
+    bottom: 4px;
+    left: 16px;
+    right: 16px;
+}
+
+.s-activity-container {
+    width: 90%;
+    min-width: 800px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+@media (min-width: 1200px) {
+    .s-activity-container {
+        width: 80%;
+    }
+}
+
+@media (min-width: 1600px) {
+    .s-activity-container {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1921px) {
+    .s-activity-container {
+        width: 61%;
+        min-width: 800px;
+        max-width: 2200px;
+    }
+}
+
+
+.s-player-container {
+    width: 100%;
+    position: relative;
+}
+
+.s-participants {
+    margin-bottom: 12px;
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.s-disconnect-btn {
+    position: absolute;
+    left: -56px;
+    bottom: 0;
+    width: 32px;
+    outline: none;
+    border: none;
+    height: 32px;
+    background-color: transparent;
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../../assets/logout.svg');
+}
+
+.s-invite-btn {
+    position: absolute;
+    left: -53px;
+    bottom: 98px;
+    width: 32px;
+    outline: none;
+    border: none;
+    height: 32px;
+    background-color: transparent;
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../../assets/invite.svg');
+}
+
+.s-invite-btn__done {
+    background-image: url('../../assets/invite-done.svg');
+}
+
+.s-player-notification {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+}

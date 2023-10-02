@@ -1,0 +1,21 @@
+.placeholder {
+    position: relative;
+    width: 100%;
+    padding-top: 75%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: linear-gradient(135deg,#002055,#004ecc);
+}
+
+.placeholder .icon {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    right: 15%;
+    bottom: 15%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../../../../assets/placeholder.svg');
+    z-index: 1;
+}

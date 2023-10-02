@@ -1,0 +1,88 @@
+import { Meta } from '@storybook/addon-docs';
+import Code from './assets/code-brackets.svg';
+import Colors from './assets/colors.svg';
+import Comments from './assets/comments.svg';
+import Direction from './assets/direction.svg';
+import Flow from './assets/flow.svg';
+import Plugin from './assets/plugin.svg';
+import Repo from './assets/repo.svg';
+import StackAlt from './assets/stackalt.svg';
+
+<Meta title="Tutorials/API/Participant" />
+
+<style>
+  {`
+    .note {
+        border-left: 4px solid rgb(211, 61, 61);
+        background-color: rgb(245, 247, 249);
+        border-radius: 4px;
+        padding: 4px 16px;
+    }
+
+    .info {
+        border-left: 4px solid rgb(52, 109, 219);
+        background-color: rgb(245, 247, 249);
+        border-radius: 4px;
+        padding: 4px 16px;
+    }
+  `}
+</style>
+
+
+# Public fields
+
+`participantId` - Unique identifier of a participant
+
+
+`participantName` - Name of participant
+
+
+`isLocal` - Identifies whether the participant is a local one
+
+
+`stream` - Participant Media Stream - Read here for more information
+
+
+`streamConstraints` - An object with two fields:
+{audio: boolean, video: boolean}
+* Example: 
+  ```js
+  {audio: false, video: true}
+  ```
+  That means a stream of participant consists only of video tracks
+
+
+`settings` - An object with two fields:\
+* Example: 
+  ```js
+  {mutedAudio: boolean, mutedVideo: boolean}
+  ```
+  Those fields contain the state of the Audio and Video of the participant
+
+# Methods
+
+## enableAudio()
+`enableAudio()`
+
+## disableAudio()
+`disableAudio()`
+
+## enableVideo()
+`enableVideo()`
+
+## disableVideo()
+`disableVideo()`
+
+## isAudioEnabled()
+`isAudioEnabled()` - Return boolean state of the local audio
+
+## isVideoEnabled()
+`isVideoEnabled()` - Return boolean state of the local video
+
+## startScreenSharing(callback: Function)
+`startScreenSharing(callback: Function)` - The callback function will be invoked when screen sharing is started
+
+## stopScreenSharing(callback: Function)
+`stopScreenSharing(callback: Function)` - The callback function will be invoked when screen sharing is stopped
+
+...

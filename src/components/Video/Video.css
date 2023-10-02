@@ -1,0 +1,152 @@
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 75%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: linear-gradient(135deg,#cbcbcb,#fff);
+    transform: translateZ(0);
+}
+
+.video-container.active-speaker {
+    box-shadow: 0px -1px 8px 2px rgb(255 255 255 / 60%);
+}
+
+.video-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.local .video {
+    transform: scaleX(-1);
+}
+
+.control-video-block {
+    position: absolute;
+    height: 16%;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    padding: 0 22px;
+    padding-bottom: 8px;
+}
+
+.preview .control-video-block {
+    pointer-events: none;
+}
+
+.participant-camera {
+    width: 32px;
+    height: 32px;
+    margin: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #B5C9FF;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, .4);
+    border-radius: 32px;
+}
+
+.local .participant-camera {
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.participant-camera svg {
+    width: 20px;
+    height: 20px;
+    color: #004ecc;
+}
+
+.local .participant-camera svg {
+    width: 20px;
+    height: 20px;color: #004ecc;
+}
+
+.participant-mic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    margin: 4px;
+    color: #004ecc;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, .4);
+    border-radius: 32px;
+}
+
+.local .participant-mic {
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    color: #004ecc;
+}
+
+.participant-mic svg {
+    width: 20px;
+    height: 20px;
+}
+
+.local .participant-mic svg {
+    width: 20px;
+    height: 20px;
+}
+
+.participant-name {
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-family: 'Righteous', cursive;
+    white-space: nowrap;
+    overflow: hidden;
+    display: none;
+}
+
+.local .participant-name {
+    font-size: 24px;
+    display: block;
+}
+
+.video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,#cbcbcb,#fff);
+    z-index: 1;
+}
+
+.video-placeholder .icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 12px;
+    background-position: calc(50% + 15px) center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 58%;
+    background-image: url('../../assets/user.svg');
+    z-index: 1;
+}

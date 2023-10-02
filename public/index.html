@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Rosario&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"/>
+
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Sceenic web-demo</title>
+    <style>
+      .tour-btn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        padding: 8px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        z-index: 10000;
+        border-radius: 32px;
+        opacity: .6;
+      }
+  
+      .tour-btn:hover {
+        opacity: 1;
+        padding: 6px;
+        top: 9px;
+        right: 9px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+     <div class="tour-btn" id="tour-btn">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#fff" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="IntegrationInstructionsIcon"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-.14 0-.27.01-.4.04-.39.08-.74.28-1.01.55-.18.18-.33.4-.43.64-.1.23-.16.49-.16.77v14c0 .27.06.54.16.78s.25.45.43.64c.27.27.62.47 1.01.55.13.02.26.03.4.03h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-8 11.17-1.41 1.42L6 12l3.59-3.59L11 9.83 8.83 12 11 14.17zm1-9.92c-.41 0-.75-.34-.75-.75s.34-.75.75-.75.75.34.75.75-.34.75-.75.75zm2.41 11.34L13 14.17 15.17 12 13 9.83l1.41-1.42L18 12l-3.59 3.59z"></path></svg>
+     </div>
+  </body>
+
+  <script>
+    const tourLogin = new Shepherd.Tour({
+      useModalOverlay: true,
+      defaultStepOptions: {
+        classes: 'shadow-md bg-purple-dark',
+        scrollTo: true
+      }
+    });
+
+    tourLogin.addStep({
+      id: 'login-card',
+      text: 'You can try this component in <a href="/storybook/?path=/story/app-login--page" target="_blank">our storybook</a>. Please enter user ID for continue.',
+      attachTo: {
+        element: '.login-card',
+        on: 'top'
+      },
+      classes: 'example-step-extra-class',
+      buttons: [
+        {
+          text: 'Done',
+          action: tourLogin.next
+        }
+      ]
+    });
+  </script>
+
+<script>
+  const tourConnect = new Shepherd.Tour({
+    useModalOverlay: true,
+    defaultStepOptions: {
+      classes: 'shadow-md bg-purple-dark',
+      scrollTo: true
+    }
+  });
+
+  tourConnect.addStep({
+    id: 's-logo',
+    text: 'You can try this component in <a href="/storybook/?path=/story/app-logo--page" target="_blank">our storybook</a>.',
+    attachTo: {
+      element: '.s-logo',
+      on: 'bottom'
+    },
+    classes: 'example-step-extra-class',
+    buttons: [
+      {
+        text: 'Next',
+        action: tourConnect.next
+      }
+    ]
+  });
+
+  tourConnect.addStep({
+    id: 'watch-party-btn',
+    text: 'All about WT sessions <a href="/storybook/?path=/story/tutorials-api-session--page" target="_blank">here</a>. For more information about WT please check <a href="/storybook/?path=/story/tutorials-web-javascript-reactjs--page">WT overview page</a>',
+    attachTo: {
+      element: '#watch-party-btn',
+      on: 'bottom'
+    },
+    classes: 'example-step-extra-class',
+    buttons: [
+      {
+        text: 'Done',
+        action: tourConnect.next
+      }
+    ]
+  });
+</script>
+
+
+<script>
+  const tourDevices = new Shepherd.Tour({
+    useModalOverlay: true,
+    defaultStepOptions: {
+      classes: 'shadow-md bg-purple-dark',
+      scrollTo: true
+    }
+  });
+
+  tourDevices.addStep({
+    id: 'do-preview',
+    text: 'Use <a href="/storybook/?path=/story/tutorials-api-mediadevices--page#dopreviewconstraints" target="_blank">WT doPreview method</a> for create connection preview',
+    attachTo: {
+      element: '#do-preview',
+      on: 'right'
+    },
+    classes: 'example-step-extra-class',
+    buttons: [
+      {
+        text: 'Next',
+        action: tourDevices.next
+      }
+    ]
+  });
+
+  tourDevices.addStep({
+    id: 'input-video-device',
+    text: 'All about <a href="/storybook/?path=/story/tutorials-api-mediadevices--page">Media Devices</a>',
+    attachTo: {
+      element: '#input-video-device',
+      on: 'top'
+    },
+    classes: 'example-step-extra-class',
+    buttons: [
+      {
+        text: 'Next',
+        action: tourDevices.next
+      }
+    ]
+  });
+
+  tourDevices.addStep({
+    id: 'input-audio-device',
+    text: 'All about <a href="/storybook/?path=/story/tutorials-api-mediadevices--page">Media Devices</a>',
+    attachTo: {
+      element: '#input-audio-device',
+      on: 'top'
+    },
+    classes: 'example-step-extra-class',
+    buttons: [
+      {
+        text: 'Done',
+        action: tourDevices.next
+      }
+    ]
+  });
+</script>
+
+<script>
+  const tourSession = new Shepherd.Tour({
+    useModalOverlay: true,
+    defaultStepOptions: {
+      classes: 'shadow-md bg-purple-dark',
+      scrollTo: true
+    }
+  });
+
+  tourSession.addStep({
+    id: 'local-participant-video',
+    text: 'Your local participant. You can manage it using <a href="/storybook/?path=/story/tutorials-api-participant--page" target="_blank">participant object</a>',
+    attachTo: {
+      element: '#local-participant-video',
+      on: 'right'
+    },
+    classes: 'example-step-extra-class',
+    buttons: [
+      {
+        text: 'Next',
+        action: tourSession.next
+      }
+    ]
+  });
+
+  tourSession.addStep({
+    id: 'participant-camera',
+    text: 'You can enable/disable participant video using <a href="/storybook/?path=/story/tutorials-api-participant--page#disablevideo">disableVideo</a> and <a href="/storybook/?path=/story/tutorials-api-participant--page#enableVideo">enableVideo</a> methods',
+    attachTo: {
+      element: '.participant-camera',
+      on: 'bottom'
+    },
+    classes: 'example-step-extra-class',
+    buttons: [
+      {
+        text: 'Next',
+        action: tourSession.next
+      }
+    ]
+  });
+
+  tourSession.addStep({
+    id: 'participant-mic',
+    text: 'You can enable/disable participant audio using <a href="/storybook/?path=/story/tutorials-api-participant--page#disableaudio">disableAudio</a> and <a href="/storybook/?path=/story/tutorials-api-participant--page#enableaudio">enableAudio</a> methods',
+    attachTo: {
+      element: '.participant-mic',
+      on: 'bottom'
+    },
+    classes: 'example-step-extra-class',
+    buttons: [
+      {
+        text: 'Next',
+        action: tourSession.next
+      }
+    ]
+  });
+
+  tourSession.addStep({
+    id: 's-player-container',
+    text: 'For video player manager you can use our <a href="https://documentation.sceenic.co/synchronization-sdk/synchronization-sdk-overview" target="_blank">SyncSDK</a>',
+    attachTo: {
+      element: '.s-player-container',
+      on: 'top'
+    },
+    classes: 'example-step-extra-class',
+    buttons: [
+      {
+        text: 'Next',
+        action: tourSession.next
+      }
+    ]
+  });
+
+  tourSession.addStep({
+    id: 's-invite-btn',
+    text: '<a href="https://documentation.sceenic.co/celebrity-sdk/celebrity-sdk-overview" target="_blank">Here</a> you will find more information about CelebritySDK',
+    attachTo: {
+      element: '.s-invite-btn',
+      on: 'top'
+    },
+    classes: 'example-step-extra-class',
+    buttons: [
+      {
+        text: 'Done',
+        action: tourSession.next
+      }
+    ]
+  });
+</script>
+
+<script>
+  document.getElementById('tour-btn').onclick = () => {
+    if (document.getElementById('login-container')) {
+      tourLogin.cancel();
+      tourLogin.start();
+    }
+    else if (document.getElementById('input-video-device')) {
+      tourDevices.cancel();
+      tourDevices.start();
+    }
+    else if (document.getElementById('watch-party-btn')){
+      tourConnect.cancel();
+      tourConnect.start();
+    }
+    else {
+      tourSession.cancel();
+      tourSession.start();
+    }
+  }
+</script>
+</html>

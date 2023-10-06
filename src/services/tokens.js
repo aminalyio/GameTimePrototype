@@ -1,8 +1,9 @@
 import axios from 'services/axios';
 
 export const getTokens = async (id) => {
+  const authServer = "https://7a44-148-252-140-56.ngrok-free.app/room/create";
   const { data } = await axios.post(
-    `${process.env.REACT_APP_TOKEN_SHARING_SERVICE_URL}/room/create`,
+    authServer,
     {
       name: id,
     },

@@ -39,7 +39,7 @@
 
 .uda-input {
   border: 1px solid #FFFFFF;
-  background-color: #002055 !important;
+  background-color: #2d5500 !important;
   color: #FFFFFF !important;
   outline: none !important;
   text-align: left;
@@ -91,14 +91,14 @@
   width: 100% !important;
   margin-top: 20px !important;
   background: none !important;
-  background-color: #004ecc !important;
+  background-color: #00cc22 !important;
   letter-spacing: 1px;
   min-height: 40px;
   transition: background-color .5s;
 }
 
 .uda-button[disabled] {
-  background-color: #829ab1 !important;
+  background-color: #82b189 !important;
 }
 
 .uda-input-error {

@@ -49,7 +49,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-size: 150px;
-    background-image: url(./components/img/sceenic-white.svg);
+    background-image: url(./components/img/gametime-brand-logo.png);
 }
 
 .button {
@@ -59,7 +59,7 @@
     font-size: 21px;
     width: 100%;
     padding: 4px 8px;
-    background: linear-gradient(135deg,#002055,#004ecc);
+    background: linear-gradient(135deg,#005512,#00cc36);
     border-radius: 32px;
     color: #FFFFFF;
     transform: scale(1);

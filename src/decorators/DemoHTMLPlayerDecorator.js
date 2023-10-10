@@ -1,7 +1,7 @@
 import Hls from 'hls.js';
 import { PlayerDecorator } from '@sscale/syncsdk';
 
-export default class DemoHtmlPlayer extends PlayerDecorator {
+export default class DemoHtmlPlayerDecorator extends PlayerDecorator {
   static DEFAULT_PTS_FREQUENCY = 90000;
 
   streamOffset = 0;
@@ -15,12 +15,12 @@ export default class DemoHtmlPlayer extends PlayerDecorator {
 
     const initPTS = this.player.hls.streamController.initPTS;
     if (initPTS[0]) {
-      const streamOffset = (Math.abs(initPTS[0]) / DemoHtmlPlayer.DEFAULT_PTS_FREQUENCY) * 1000;
+      const streamOffset = (Math.abs(initPTS[0]) / DemoHtmlPlayerDecorator.DEFAULT_PTS_FREQUENCY) * 1000;
       this.streamOffset = Math.round(streamOffset);
     } else {
       this.player.hls.on(Hls.Events.INIT_PTS_FOUND, (event, eventData) => {
         if (eventData.initPTS > 0) {
-          const streamOffset = (Math.abs(eventData.initPTS) / DemoHtmlPlayer.DEFAULT_PTS_FREQUENCY) * 1000;
+          const streamOffset = (Math.abs(eventData.initPTS) / DemoHtmlPlayerDecorator.DEFAULT_PTS_FREQUENCY) * 1000;
           this.streamOffset = Math.round(streamOffset);
         }
       });

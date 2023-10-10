@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Hls from 'hls.js';
-import './Player.css';
+import './HtmlPlayer.css';
 
 import {
   setClientToSdk,
@@ -11,12 +11,12 @@ import {
   attachDeltaListener,
   attachPlaybackRateListener,
 } from 'services/SyncService';
-import HTMLPlayerDecorator from 'services/SyncService/HTMLPlayerDecorator';
+import HTMLPlayerDecorator from 'decorators/DemoHTMLPlayerDecorator';
 import { useSelector } from 'react-redux';
 
 const STREAM = 'https://demo-app.sceenic.co/football.m3u8';
 
-const Player = ({ isLoggedIn }) => {
+const HtmlPlayer = ({ isLoggedIn }) => {
   const { syncToken } = useSelector((state) => state.celebrity);
   const { participants } = useSelector((state) => state.session);
 
@@ -113,4 +113,4 @@ const Player = ({ isLoggedIn }) => {
     </div>
   );
 };
-export default Player;
+export default HtmlPlayer;

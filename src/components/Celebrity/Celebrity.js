@@ -12,12 +12,13 @@ import celebrityAPI from 'services/celebrity';
 import Video from '../Video/Video';
 import JoinModal from './components/JoinModal/JoinModal';
 import Rooms from './components/Rooms/Rooms';
-import Player from '../Player/Player';
+import HtmlPlayer from '../Players/HtmlPlayer';
 import SessionError from './components/SessionError/SessionError';
 import Participants from './components/Participants/Participants';
 import './Celebrity.css';
 import CopyLink from 'components/CopyLink/CopyLink';
 import WatchParty from 'components/WatchParty/WatchParty';
+import YoutubePlayer from 'components/Players/YoutubePlayer';
 
 function Session() {
   const dispatch = useDispatch();
@@ -207,7 +208,7 @@ function Session() {
           </div>
 
           <div className="s-player-container">
-            <Player isLoggedIn={isCelebrity} />
+            <YoutubePlayer isLoggedIn={isCelebrity} />
           </div>
         </div>
 

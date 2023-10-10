@@ -19,7 +19,7 @@ import { stopSync } from 'services/SyncService';
 
 import Video from '../Video/Video';
 import JoinModal from '../JoinModal/JoinModal';
-import Player from '../Player/Player';
+import HtmlPlayer from '../Players/HtmlPlayer';
 import SessionError from './components/SessionError/SessionError';
 import Participants from './components/Participants/Participants';
 import QueueState from './components/QueueState/QueueState';
@@ -27,6 +27,7 @@ import WatchParty from 'components/WatchParty/WatchParty';
 import CopyLink from 'components/CopyLink/CopyLink';
 import './Session.css';
 import participantQueueAPI from 'services/participant';
+import YoutubePlayer from 'components/Players/YoutubePlayer';
 
 function Session() {
   const dispatch = useDispatch();
@@ -268,7 +269,7 @@ function Session() {
           </div>
 
           <div className="s-player-container">
-            <Player isLoggedIn />
+            <YoutubePlayer isLoggedIn />
             <div className="s-player-notification">
               <QueueState />
             </div>

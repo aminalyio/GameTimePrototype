@@ -230,6 +230,13 @@ const Session = ({ userId }) => {
       <div className="s-body">
         <div className="s-activity-container">
 
+          <div className="s-player-container">
+            <YoutubePlayer isLoggedIn userId={userId}/>
+            <div className="s-player-notification">
+              <QueueState />
+            </div>
+          </div>
+
           <div className="s-participants">
             <div className="s-celebrity-container" id="local-participant-video">
               <div className="s-celebrity-video">
@@ -269,12 +276,6 @@ const Session = ({ userId }) => {
             <Participants />
           </div>
 
-          <div className="s-player-container">
-            <YoutubePlayer isLoggedIn userId={userId}/>
-            <div className="s-player-notification">
-              <QueueState />
-            </div>
-          </div>
         </div>
 
         {/*<Rooms key={userName} isLoggedIn={isCelebrity} makeCelebrityLocal={makeCelebrityLocalRef.current} />*/}

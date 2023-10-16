@@ -57,7 +57,7 @@ export default class DemoYoutubePlayerDecorator extends PlayerDecorator {
 
   fastSeekToPosition(position) {
     try {
-      this.player.seekTo(position);
+      this.player.seekTo(position / 1000, true);
     } catch (e) {
       console.error("Fast seek error:", e);
     }

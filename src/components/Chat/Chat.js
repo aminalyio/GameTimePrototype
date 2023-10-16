@@ -8,7 +8,7 @@ import { off, on } from '../../services/PubSub';
 
 const Chat = () => {
   const s = useStyles();
-  const [isChatVisible, setChatVisible] = useState(false);
+  const [isChatVisible, setChatVisible] = useState(true);
   const [messages, setMessages] = useState([]);
 
   function handleMessage(message) {

@@ -73,7 +73,7 @@ const YoutubePlayer = ({ isLoggedIn, userId }) => {
         new YT.Player('youtube-player', {
             height: '100%',
             width: '100%',
-            videoId: '9Auq9mYxFEE',
+            videoId: 'p26g3w7QmQE',
             events: {
                 onReady: (result) => {
                     handleReady(result.target);

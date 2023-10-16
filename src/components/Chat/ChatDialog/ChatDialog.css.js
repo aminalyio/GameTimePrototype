@@ -66,7 +66,7 @@ const useStyles = makeStyles(theme => ({
         lineHeight: 1.4,
         whiteSpace: 'pre-wrap',
         wordWrap: 'break-word',
-        width: 'calc(100% - 90px)',
+        width: 'calc(100%)',
         flexDirection: 'row',
         display: 'flex'
     },

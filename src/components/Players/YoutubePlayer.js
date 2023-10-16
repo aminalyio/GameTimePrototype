@@ -13,7 +13,7 @@ import {
 import DemoYoutubePlayerDecorator from 'decorators/DemoYoutubePlayerDecorator';
 import { useSelector } from 'react-redux';
 
-const YoutubePlayer = ({ isLoggedIn }) => {
+const YoutubePlayer = ({ isLoggedIn, userId }) => {
   const cleanup = useRef(() => {});
   const { syncToken } = useSelector((state) => state.celebrity);
   const { participants } = useSelector((state) => state.session);
@@ -24,7 +24,7 @@ const YoutubePlayer = ({ isLoggedIn }) => {
     }
 
     async function sync() {
-      await setGroup(syncToken, 'Sceenic');
+      await setGroup(syncToken, userId);
       await startSynchronize();
     }
 
@@ -73,7 +73,7 @@ const YoutubePlayer = ({ isLoggedIn }) => {
         new YT.Player('youtube-player', {
             height: '100%',
             width: '100%',
-            videoId: 'pr07gSwWOrY',
+            videoId: '9Auq9mYxFEE',
             events: {
                 onReady: (result) => {
                     handleReady(result.target);

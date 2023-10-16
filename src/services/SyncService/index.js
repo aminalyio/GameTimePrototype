@@ -1,8 +1,10 @@
 import { SyncSDK, Callbacks, LogLevels } from '@sscale/syncsdk';
+import { publish } from 'services/PubSub';
 import axios from 'services/axios';
 
 const syncInstance = new SyncSDK();
 syncInstance.setLogLevel(LogLevels.DEBUG);
+syncInstance.attachListener(publish.bind(null, 'chat_update'), Callbacks.chat_update);
 
 export const attachDeltaListener = (clb) => {
   syncInstance?.attachListener(clb, Callbacks.delta_change);
@@ -26,6 +28,10 @@ export const stopSync = () => {
 
 export const startSynchronize = async () => {
   await syncInstance.startSynchronize();
+};
+
+export const sendMessageToChat = (message) => {
+  return syncInstance?.sendMessageToGroup(message);
 };
 
 export const groupSeek = () => {

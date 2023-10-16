@@ -28,7 +28,7 @@ function Login({ onDone }) {
       const token = data.token;
       participantQueueAPI.setToken(token);
 
-      onDone();
+      onDone(uidValue);
       // setIsOpen(false);
       // setConnecting(false);
     } catch (e) {

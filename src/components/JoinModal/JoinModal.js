@@ -5,7 +5,7 @@ import UserDataEntry from './components/UserDataEntry/UserDataEntry';
 import './JoinModal.css';
 import { setJoinModalType } from 'store/reducers/SessionReducer';
 
-function JoinModal() {
+const JoinModal = ({ userId }) => {
   const dispatch = useDispatch();
   const joinModalType = useSelector((state) => state.session.joinModalType);
 
@@ -29,7 +29,7 @@ function JoinModal() {
   return (
     <div className="sd-wrapper" onClick={handleClose}>
       <div className="sd-container">
-        <UserDataEntry />
+        <UserDataEntry userId = {userId} />
       </div>
     </div>
   );

@@ -20,7 +20,7 @@ function makeid(length) {
   return result;
 }
 
-function UserDataEntry() {
+const UserDataEntry = ({ userId }) => {
   const dispatch = useDispatch();
 
   const [loading, setLoadingState] = useState(true);
@@ -100,7 +100,7 @@ function UserDataEntry() {
 
       const {wtToken, syncToken} = await getTokens(roomId);
 
-      await setGroup(syncToken, 'Sceenic');
+      await setGroup(syncToken, userId);
       await startSynchronize();
 
       await WT.Session.connect(wtToken, 'Sceenic', constraints);

@@ -6,15 +6,17 @@ import Celebrity from 'components/Celebrity/Celebrity';
 
 const AppRouter = () => {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [userId, setUserId] = useState('')
 
-  function handleDone() {
+  function handleDone(userId) {
     setLoggedIn(true);
+    setUserId(userId);
   }
 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={loggedIn ? <Session /> : <Login onDone={handleDone} />} />
+        <Route path="/" element={loggedIn ? <Session userId={userId} /> : <Login onDone={handleDone} />} />
         <Route path="/celebrity" element={<Celebrity />} />
       </Routes>
     </Router>

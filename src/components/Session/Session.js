@@ -28,8 +28,9 @@ import CopyLink from 'components/CopyLink/CopyLink';
 import './Session.css';
 import participantQueueAPI from 'services/participant';
 import YoutubePlayer from 'components/Players/YoutubePlayer';
+import Chat from 'components/Chat/Chat';
 
-function Session() {
+const Session = ({ userId }) => {
   const dispatch = useDispatch();
 
   const { roomId, syncToken, queueState, wtToken } = useSelector((state) => state.participant);
@@ -228,6 +229,7 @@ function Session() {
 
       <div className="s-body">
         <div className="s-activity-container">
+
           <div className="s-participants">
             <div className="s-celebrity-container" id="local-participant-video">
               <div className="s-celebrity-video">
@@ -264,12 +266,11 @@ function Session() {
                 )}
               </div>
             </div>
-
             <Participants />
           </div>
 
           <div className="s-player-container">
-            <YoutubePlayer isLoggedIn />
+            <YoutubePlayer isLoggedIn userId={userId}/>
             <div className="s-player-notification">
               <QueueState />
             </div>
@@ -278,8 +279,13 @@ function Session() {
 
         {/*<Rooms key={userName} isLoggedIn={isCelebrity} makeCelebrityLocal={makeCelebrityLocalRef.current} />*/}
 
-        <JoinModal />
-
+        <JoinModal userId= {userId}/>
+        {roomId ? (
+              <Chat />
+            ) : (
+              <div></div>
+            )
+        }
         <SessionError />
       </div>
     </div>

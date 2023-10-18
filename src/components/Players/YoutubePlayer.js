@@ -38,7 +38,7 @@ const YoutubePlayer = ({ isLoggedIn, userId }) => {
   useEffect(() => {
     attachDeltaListener((delta) => {
       const el = document.getElementById('delta-info');
-      el.innerText = `${delta}ms`;
+      el.innerText = `${delta / 1000} sec`;
     });
 
     attachPlaybackRateListener((rate) => {
@@ -73,7 +73,7 @@ const YoutubePlayer = ({ isLoggedIn, userId }) => {
         new YT.Player('youtube-player', {
             height: '100%',
             width: '100%',
-            videoId: 'p26g3w7QmQE',
+            videoId: 'eIHYkhmjRgA',
             events: {
                 onReady: (result) => {
                     handleReady(result.target);

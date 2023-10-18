@@ -6,6 +6,7 @@ import './Login.css';
 
 function Login({ onDone }) {
   const [uidValue, setUidValue] = useState('');
+  // const [youtubeId, setYoutubeId] = useState('')
   const [connecting, setConnecting] = useState(false);
 
   const handleSubmit = async () => {

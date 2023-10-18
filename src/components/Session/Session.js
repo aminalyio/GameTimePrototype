@@ -244,7 +244,7 @@ const Session = ({ userId }) => {
               </div>
 
               <div className="s-snapshot">
-                <button
+                {/* <button
                   className={classnames(
                     's-invite-btn',
                     queueState && queueState.status !== QueueStatus.FAILED && 's-invite-btn__done',
@@ -255,13 +255,9 @@ const Session = ({ userId }) => {
                     } else {
                       joinCelebrityQueue();
                     }
-                    /*.then(() => {
-                      const cls = e.target.getAttribute('class');
-                      e.target.setAttribute('class', [cls, 's-invite-btn__done'].join(' '));
-                    });*/
                   }}
                   title="Invite"
-                />
+                /> */}
 
                 {roomId ? (
                   <>

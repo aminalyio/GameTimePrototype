@@ -15,25 +15,10 @@ import { useSelector } from 'react-redux';
 
 const YoutubePlayer = ({ isLoggedIn, userId }) => {
   const cleanup = useRef(() => {});
-  const { syncToken } = useSelector((state) => state.celebrity);
   const { participants } = useSelector((state) => state.session);
-
-  useEffect(() => {
-    if (!syncToken) {
-      return;
-    }
-
-    async function sync() {
-      await setGroup(syncToken, userId);
-      await startSynchronize();
-    }
-
-    sync();
-
-    return () => {
-      stopSync();
-    };
-  }, [syncToken]);
+  const { videoId } = useSelector((state) => state.participant);
+  const videoIdRef = useRef(videoId);
+  
 
   useEffect(() => {
     attachDeltaListener((delta) => {
@@ -48,7 +33,7 @@ const YoutubePlayer = ({ isLoggedIn, userId }) => {
   }, []);
 
   const handleReady = useCallback((player) => {
-    if (!player) {
+    if (!player || !isLoggedIn) {
         return;
     }
 
@@ -73,7 +58,7 @@ const YoutubePlayer = ({ isLoggedIn, userId }) => {
         new YT.Player('youtube-player', {
             height: '100%',
             width: '100%',
-            videoId: '_YqEGNOpns8',
+            videoId: videoIdRef.current,
             events: {
                 onReady: (result) => {
                     handleReady(result.target);

@@ -16,26 +16,8 @@ import { useSelector } from 'react-redux';
 
 const STREAM = 'https://demo-app.sceenic.co/football.m3u8';
 
-const HtmlPlayer = ({ isLoggedIn }) => {
-  const { syncToken } = useSelector((state) => state.celebrity);
+const HtmlPlayer = ({ isLoggedIn, userId }) => {
   const { participants } = useSelector((state) => state.session);
-
-  useEffect(() => {
-    if (!syncToken) {
-      return;
-    }
-
-    async function sync() {
-      await setGroup(syncToken, 'Sceenic');
-      await startSynchronize();
-    }
-
-    sync();
-
-    return () => {
-      stopSync();
-    };
-  }, [syncToken]);
 
   useEffect(() => {
     attachDeltaListener((delta) => {

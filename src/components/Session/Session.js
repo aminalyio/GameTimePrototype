@@ -30,12 +30,20 @@ import participantQueueAPI from 'services/participant';
 import YoutubePlayer from 'components/Players/YoutubePlayer';
 import Chat from 'components/Chat/Chat';
 import DailymotionPlayer from 'components/Players/DailymotionPlayer';
+import { PLAYERS } from 'components/Players/SupportedPlayers';
 
 const Session = ({ userId }) => {
   const dispatch = useDispatch();
 
-  const { roomId, syncToken, queueState, wtToken } = useSelector((state) => state.participant);
+  const { 
+    syncToken, 
+    queueState, 
+    wtToken, 
+    playerId, 
+    videoId,
+    joinedParty } = useSelector((state) => state.participant);
   const { participants, connectedClb } = useSelector((state) => state.session);
+  
 
   const [roomHasCelebrity, setRoomCelebrityPresence] = useState(false);
   // const [roomsList, setRoomsList] = useState([]);
@@ -47,6 +55,9 @@ const Session = ({ userId }) => {
   const roomHasCelebrityRef = useRef(roomHasCelebrity);
   const actualStateRef = useRef({ wtToken, syncToken });
   actualStateRef.current = { wtToken, syncToken };
+  const playerIdRef = useRef(playerId);
+
+  const Player = PLAYERS[playerIdRef.current];
 
   // useEffect(() => {
   //   if (!isCelebrity || !pageIsActive) {
@@ -232,7 +243,7 @@ const Session = ({ userId }) => {
         <div className="s-activity-container">
 
           <div className="s-player-container">
-            <DailymotionPlayer isLoggedIn userId={userId}/>
+            {Player && <Player isLoggedIn={true} userId={userId}/>}
             <div className="s-player-notification">
               <QueueState />
             </div>
@@ -260,7 +271,7 @@ const Session = ({ userId }) => {
                   title="Invite"
                 /> */}
 
-                {roomId ? (
+                {joinedParty ? (
                   <>
                     <CopyLink />
                     <button className="s-disconnect-btn" onClick={disconnect} title="Disconnect" />
@@ -278,7 +289,7 @@ const Session = ({ userId }) => {
         {/*<Rooms key={userName} isLoggedIn={isCelebrity} makeCelebrityLocal={makeCelebrityLocalRef.current} />*/}
 
         <JoinModal userId= {userId}/>
-        {roomId ? (
+        {joinedParty ? (
               <Chat />
             ) : (
               <div></div>

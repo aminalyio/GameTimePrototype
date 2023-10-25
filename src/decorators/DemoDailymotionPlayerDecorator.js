@@ -75,17 +75,13 @@ export default class DemoDailymotionDecorator extends PlayerDecorator {
       this.playing = state.playerIsPlaying;
       this.isLive = state.videoDuration;
 
-      // console.log("videoDuration: " + this.isLive);
-      // console.log("currentPosition " + this.currentPosition);
-      // console.log("playbackRate " + this.playbackRate);
-
       this.queryProgress();
     }, 25);
 
   }
   
   getPrecisionThreshold() {
-    return 450;
+    return 400;
   }
 
   isSeekable() {
@@ -120,7 +116,6 @@ export default class DemoDailymotionDecorator extends PlayerDecorator {
 
   getCurrentPosition() {
     try {
-      console.log("currentPosition: " + this.currentPosition);
       return Math.round(this.currentPosition * 1000);
     } catch (e) {
       console.error("Get current position error:", e);
@@ -141,7 +136,6 @@ export default class DemoDailymotionDecorator extends PlayerDecorator {
 
   fastSeekToPosition(position) {
     try {
-      console.log("seek()" + (position/1000));
       this.player.seek(position / 1000);
     } catch (e) {
       console.error("Fast seek error:", e);
@@ -176,10 +170,8 @@ export default class DemoDailymotionDecorator extends PlayerDecorator {
   changePlaybackRate(rate){
     try {
       if (rate < 1 && rate >= 0.75) { //this is a hack to work around dailymotion round up
-        console.log(0.75);
         this.player.setPlaybackSpeed(0.75);
       } else {
-        console.log(rate);
         this.player.setPlaybackSpeed(rate);
       }
     } catch (e) {

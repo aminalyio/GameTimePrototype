@@ -1,15 +1,17 @@
 import axios from 'services/axios';
 
-export const getTokens = async (id) => {
-  const authServer = "https://6c44-213-86-221-106.ngrok-free.app/room/create";
+export const getTokens = async (id, pid, vid) => {
+  const authServer = "https://e28c-148-252-133-26.ngrok-free.app/room/create";
   const { data } = await axios.post(
     authServer,
     {
       name: id,
+      playerId: pid, 
+      videoId: vid,
     },
   );
 
-  const { wt_token: wtToken, sync_token: syncToken } = data;
+  const { wtToken, syncToken, playerId, videoId } = data;
 
-  return { wtToken, syncToken};
+  return { wtToken, syncToken, playerId, videoId};
 };

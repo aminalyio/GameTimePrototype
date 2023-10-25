@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import WT from '@sscale/wtsdk';
 import './UserDataEntry.css';
 
-import { setRoomSettings } from '../../../../store/reducers/ParticipantReducer';
+import { setConstraints, setJoinedParty, setRoomSettings } from '../../../../store/reducers/ParticipantReducer';
 import { setJoinModalType } from '../../../../store/reducers/SessionReducer';
 import { setGroup, startSynchronize } from 'services/SyncService';
 import {getTokens} from 'services/tokens';
@@ -22,6 +22,7 @@ function makeid(length) {
 
 const UserDataEntry = ({ userId }) => {
   const dispatch = useDispatch();
+  const { syncToken, wtToken } = useSelector((state) => state.participant);
 
   const [loading, setLoadingState] = useState(true);
   const [videoEnabled, setVideoEnabled] = useState(false);
@@ -95,11 +96,6 @@ const UserDataEntry = ({ userId }) => {
         video: video ? { deviceId: video } : false,
       };
 
-      const urlParams = new URLSearchParams(window.location.search);
-      const roomId = urlParams.get('room') || makeid(10);
-
-      const {wtToken, syncToken} = await getTokens(roomId);
-
       await setGroup(syncToken, userId);
       await startSynchronize();
 
@@ -118,16 +114,8 @@ const UserDataEntry = ({ userId }) => {
       // WT.setAudioConstraints(audio ? { deviceId: audio } : false);
       // WT.setVideoConstraints(video ? { deviceId: video } : false);
 
-      const payload = {
-        // userName: userData.displayName,
-        // isCelebrity: true,
-        syncToken,
-        wtToken,
-        roomId,
-        constraints,
-      };
-      dispatch(setRoomSettings(payload));
-
+      dispatch(setJoinedParty(true));
+      dispatch(setConstraints(constraints));
       dispatch(setJoinModalType(null));
     } catch (error) {
       // setPasswordError('Wrong credentials');

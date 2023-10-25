@@ -29,6 +29,7 @@ import './Session.css';
 import participantQueueAPI from 'services/participant';
 import YoutubePlayer from 'components/Players/YoutubePlayer';
 import Chat from 'components/Chat/Chat';
+import DailymotionPlayer from 'components/Players/DailymotionPlayer';
 
 const Session = ({ userId }) => {
   const dispatch = useDispatch();
@@ -231,7 +232,7 @@ const Session = ({ userId }) => {
         <div className="s-activity-container">
 
           <div className="s-player-container">
-            <YoutubePlayer isLoggedIn userId={userId}/>
+            <DailymotionPlayer isLoggedIn userId={userId}/>
             <div className="s-player-notification">
               <QueueState />
             </div>

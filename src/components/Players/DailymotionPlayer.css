@@ -1,12 +1,12 @@
-.player-container {
+.dailymotion-player-container {
   width: 100%;
-  padding-bottom: 56.25%;
+  /* padding-bottom: 56.25%; */
   position: relative;
   border-radius: 8px;
   overflow: hidden;
 }
 
-.player {
+.dailymotion-player {
   position: absolute;
   left: 0;
   right: 0;
@@ -27,4 +27,3 @@
   padding: 4px 10px;
   border-radius: 8px;
 }
-  

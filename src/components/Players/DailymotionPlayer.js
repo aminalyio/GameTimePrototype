@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import './YoutubePlayer.css';
-import YTLoader from 'youtube-iframe';
+import './DailymotionPlayer.css';
 import {
   setClientToSdk,
   groupSeek,
@@ -10,13 +9,16 @@ import {
   attachDeltaListener,
   attachPlaybackRateListener,
 } from 'services/SyncService';
-import DemoYoutubePlayerDecorator from 'decorators/DemoYoutubePlayerDecorator';
 import { useSelector } from 'react-redux';
+import { loadScript } from '../../utils/loadScript';
+import DemoDailymotionDecorator from 'decorators/DemoDailymotionPlayerDecorator';
 
-const YoutubePlayer = ({ isLoggedIn, userId }) => {
+
+const DailymotionPlayer = ({ isLoggedIn, userId }) => {
   const cleanup = useRef(() => {});
   const { syncToken } = useSelector((state) => state.celebrity);
   const { participants } = useSelector((state) => state.session);
+  const dailymotionElementId = "dailymotion-player";
 
   useEffect(() => {
     if (!syncToken) {
@@ -49,57 +51,38 @@ const YoutubePlayer = ({ isLoggedIn, userId }) => {
 
   const handleReady = useCallback((player) => {
     if (!player) {
-        return;
-    }
-
-    if (!isLoggedIn) {
       return;
     }
 
+    player.play();
+    setClientToSdk(new DemoDailymotionDecorator(player));
+    console.log("add dailymotion player");
 
-    player.playVideo();
-    setClientToSdk(new DemoYoutubePlayerDecorator(player));
-
-    player.setVolume(5);
+    player.setVolume(0.1);
 
     cleanup.current = () => {
       player.destroy();
     }
-
   }, [isLoggedIn]);
 
   useEffect(() => {
-    YTLoader.load((YT) => {
-        new YT.Player('youtube-player', {
-            height: '100%',
-            width: '100%',
-            videoId: '_YqEGNOpns8',
-            events: {
-                onReady: (result) => {
-                    handleReady(result.target);
-                },
-            },
-            playerVars: {
-                autoplay: true,
-                rel: 0,
-                showinfo: 0,
-                ecver: 2,
-                playsinline: 1,
-                modestbranding: false,
-            },
-        });
+    // @ts-ignore
+    window.loadInterval = null;
+    // @ts-ignore
+    window.player = null;
+
+    loadScript("https://geo.dailymotion.com/player/xk9h6.js", () => {
+      window.dailymotion.createPlayer('dailymotion-player', {
+        video: 'x5gv5rr',
+      })
+      .then((player) => handleReady(player));
     });
 
-    return () => {
-        cleanup.current();
-    };
-  }, [handleReady]);
-
-  const showStats = participants.length > 0;
+  }, [handleReady])
 
   return (
-    <div className="player-container">
-      {/* {showStats && ( */}
+    <div className="dailymotion-player-container">
+
         <div className="sync-info">
           <div>
             Delta: <span id="delta-info"></span>
@@ -108,11 +91,11 @@ const YoutubePlayer = ({ isLoggedIn, userId }) => {
             Rate: <span id="rate-info"></span>
           </div>
         </div>
-      {/* )} */}
 
-      <div className="player" id="youtube-player" />
+      <div className="dailymotion-player" id={dailymotionElementId} />
     </div>
+
   );
 }
-export default YoutubePlayer;
 
+export default DailymotionPlayer;

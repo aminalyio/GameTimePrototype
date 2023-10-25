@@ -42,8 +42,7 @@ const ChatDialog = ({ chatClose, messages }) => {
                             <div className={s.messageText}>
                                 <div className={s.chatName}>
                                     {!item.message.ownMessage ? item.message.clientName : ''} {item.date}{' '}
-                                </div>{' '}
-                                : {item.message.message}
+                                </div> {' '} : {item.message.message}
                             </div>
                         </div>
                     );

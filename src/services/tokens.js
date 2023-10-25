@@ -1,7 +1,7 @@
 import axios from 'services/axios';
 
 export const getTokens = async (id) => {
-  const authServer = "https://017e-148-252-140-100.ngrok-free.app/room/create";
+  const authServer = "https://6c44-213-86-221-106.ngrok-free.app/room/create";
   const { data } = await axios.post(
     authServer,
     {

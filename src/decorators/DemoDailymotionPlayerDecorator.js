@@ -81,7 +81,7 @@ export default class DemoDailymotionDecorator extends PlayerDecorator {
   }
   
   getPrecisionThreshold() {
-    return 400;
+    return 450;
   }
 
   isSeekable() {

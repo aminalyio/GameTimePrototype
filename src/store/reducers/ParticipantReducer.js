@@ -77,6 +77,9 @@ export function resetWTStore() {
       roomId: '',
       syncToken: '',
       wtToken: '',
+      playerId:'',
+      videoId:'',
+      joinedParty: false,    
       constraints: {
         audio: false,
         video: false,

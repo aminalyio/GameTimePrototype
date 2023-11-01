@@ -1,7 +1,8 @@
 import axios from 'services/axios';
 
 export const getTokens = async (id, pid, vid) => {
-  const authServer = "http://gametime-auth.eu-north-1.elasticbeanstalk.com/room/create";
+  console.log(process.env.REACT_APP_TOKEN_SHARING_SERVICE_URL);
+  const authServer = `${process.env.REACT_APP_TOKEN_SHARING_SERVICE_URL}/room/create`;
   const { data } = await axios.post(
     authServer,
     {
